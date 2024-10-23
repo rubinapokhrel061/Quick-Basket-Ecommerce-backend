@@ -49,7 +49,7 @@ Cart.belongsTo(User, { foreignKey: "userId" });
 Product.hasMany(Cart, { foreignKey: "productId" });
 Cart.belongsTo(Product, { foreignKey: "productId" });
 
-// order-orderdetail relation
+// // order-orderdetail relation
 Order.hasMany(OrderDetail, { foreignKey: "orderId" });
 OrderDetail.belongsTo(Order, { foreignKey: "orderId" });
 

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "rubie",
+    "password": "",
+    "database": "Project2Backend",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "rubi",
+    "password": "",
+    "database": "Project2Backend",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "rubi",
+    "password": "",
+    "database": "Project2Backend",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
