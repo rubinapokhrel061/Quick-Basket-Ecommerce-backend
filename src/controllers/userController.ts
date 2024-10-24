@@ -85,7 +85,7 @@ import User from "../database/models/userModel";
 class AuthController {
   public static async registerUser(req: Request, res: Response): Promise<void> {
     const { username, email, password, role } = req.body;
-    console.log(role)
+    console.log(role);
     if (!username || !email || !password) {
       res.status(400).json({
         message: "Please provide username,email,password",

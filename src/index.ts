@@ -1,7 +1,7 @@
 import express, { Application, Request, Response } from "express";
 const app: Application = express();
 const PORT: number = 8080;
-require("./model/index");
+// require("./model/index");
 import * as dotenv from "dotenv";
 dotenv.config();
 
