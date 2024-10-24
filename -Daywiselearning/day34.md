@@ -266,7 +266,7 @@ message: "Product added successfully",
 
 export default new ProductController();
 
-<!-- call seedCategory  -->
+<!-- call seedCategory  index.ts -->
 
 import express, { Application, Request, Response } from "express";
 const app: Application = express();
