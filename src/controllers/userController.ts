@@ -31,47 +31,47 @@
 //     }
 //   }
 
-//   public static async loginUser(req: Request, res: Response): Promise<void> {
-//     //user input
-//     const { email, password } = req.body;
-//     if (!email || !password) {
-//       res.status(400).json({
-//         message: "Please provide email & password",
-//       });
-//       return;
-//     }
-//     //check whether user with above email exist or not
-//     const [data] = await User.findAll({
-//       where: {
-//         email: email,
-//       },
+// public static async loginUser(req: Request, res: Response): Promise<void> {
+//   //user input
+//   const { email, password } = req.body;
+//   if (!email || !password) {
+//     res.status(400).json({
+//       message: "Please provide email & password",
 //     });
-//     if (!data) {
-//       res.status(400).json({
-//         message: "No user with that email",
-//       });
-//       return;
-//     }
-//     //check password now
-//     const isMatched = bcrypt.compareSync(password, data.password);
-//     if (!isMatched) {
-//       res.status(403).json({
-//         message: "Invalid email or password",
-//       });
-//       return;
-//     }
-//     //generate token
-//     // res.status(200).json({
-//     //   message: "logged in sucessfully",
-//     // });
+//     return;
+//   }
+//   //check whether user with above email exist or not
+//   const [data] = await User.findAll({
+//     where: {
+//       email: email,
+//     },
+//   });
+//   if (!data) {
+//     res.status(400).json({
+//       message: "No user with that email",
+//     });
+//     return;
+//   }
+//   //check password now
+//   const isMatched = bcrypt.compareSync(password, data.password);
+//   if (!isMatched) {
+//     res.status(403).json({
+//       message: "Invalid email or password",
+//     });
+//     return;
+//   }
+//   //generate token
+//   // res.status(200).json({
+//   //   message: "logged in sucessfully",
+//   // });
 
-//     const token = jwt.sign({ id: data.id }, "hello", {
-//       expiresIn: "20d",
-//     });
-//     res.status(200).json({
-//       message: "Logged in sucessfully",
-//       data: token,
-//     });
+//   const token = jwt.sign({ id: data.id }, "hello", {
+//     expiresIn: "20d",
+//   });
+//   res.status(200).json({
+//     message: "Logged in sucessfully",
+//     data: token,
+//   });
 //   }
 // }
 // export default AuthController;

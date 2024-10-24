@@ -87,10 +87,6 @@ type: DataType.STRING,
 })
 declare username: string;
 
-@Column({
-type: DataType.ENUM("customer", "admin"),
-defaultValue: "customer",
-})
 declare role: string;
 
 @Column({
@@ -121,7 +117,7 @@ import User from "../database/models/userModel";
 class AuthController {
 public static async registerUser(req: Request, res: Response): Promise<void> {
 
-      const { username, email, password, role } = req.body;
+      const { username, email, password } = req.body;
       if (!username || !email || !password) {
         res.status(400).json({
           message: "Please provide username,email,password",
