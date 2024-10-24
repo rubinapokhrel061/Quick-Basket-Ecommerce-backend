@@ -315,6 +315,9 @@ app.use(express.json());
 adminseeder();
 app.use("/",userRoute);
 app.use("/admin/product", productRoute);
+
+<!-- add -->
+
 app.use("/admin/category", categoryRoute);
 app.listen(PORT, () => {
 categoryController.seedCategory()

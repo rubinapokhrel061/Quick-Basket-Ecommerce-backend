@@ -10,6 +10,8 @@ Product.belongsTo(User, { foreignKey: "userId" });
 import { Sequelize } from "sequelize-typescript";
 import \* as dotenv from "dotenv";
 dotenv.config();
+import User from "./models/userModel";
+import Product from "./models/Product";
 
 const sequelize = new Sequelize({
 database: process.env.DB_NAME,
@@ -137,6 +139,9 @@ export default Category;
 import { Sequelize } from "sequelize-typescript";
 import \* as dotenv from "dotenv";
 dotenv.config();
+import User from "./models/userModel";
+import Product from "./models/Product";
+import Category from "./models/Category";
 
 const sequelize = new Sequelize({
 database: process.env.DB_NAME,
