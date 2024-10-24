@@ -19,6 +19,7 @@ import \* as dotenv from "dotenv";
 dotenv.config();
 
 <!-- npm i sequlize-typescript -->
+<!-- connection.ts file inside database folder -->
 
 import { Sequelize } from "sequelize-typescript";
 import \* as dotenv from "dotenv";

@@ -249,7 +249,7 @@ productName,
 productDescription,
 productTotalStockQty,
 productPrice,
-categoryId,
+
 } = req.body;
 let fileName;
 if (req.file) {
@@ -263,11 +263,11 @@ if (
 !productDescription ||
 !productTotalStockQty ||
 !productPrice ||
-!categoryId
+
 ) {
 res.status(400).json({
 message:
-"Please provide productName,productDescription,productTotalStockQty,productPrice & categoryId",
+"Please provide productName,productDescription,productTotalStockQty,productPrice",
 });
 return;
 }
@@ -277,8 +277,6 @@ productDescription,
 productPrice,
 productTotalStockQty,
 productImageUrl: fileName,
-userId: userId,
-categoryId: categoryId,
 });
 res.status(200).json({
 message: "Product added successfully",
