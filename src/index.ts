@@ -22,7 +22,7 @@ app.use(
 );
 
 app.use(express.json());
-
+app.use(express.static("src"));
 adminseeder();
 
 //localhost:8080/register

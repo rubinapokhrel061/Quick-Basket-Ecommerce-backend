@@ -16,7 +16,7 @@ class ProductController {
     } = req.body;
     let fileName;
     if (req.file) {
-      fileName = req.file?.filename;
+      fileName = "http://localhost:8080/uploads/" + req.file?.filename;
     } else {
       fileName =
         "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZHBob25lfGVufDB8fDB8fHww";
@@ -30,7 +30,7 @@ class ProductController {
     ) {
       res.status(400).json({
         message:
-          "Please provide productName,productDescription,productTotalStockQty,productPrice & categoryId",
+          "Please provide productName,,productDescription,productTotalStockQty,productPrice,categoryId",
       });
       return;
     }
@@ -93,6 +93,7 @@ class ProductController {
       });
     }
   }
+
   async deleteProduct(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     const data = await Product.findAll({

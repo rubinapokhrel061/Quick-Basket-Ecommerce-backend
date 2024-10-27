@@ -14,6 +14,9 @@ import Payment from "../database/models/Payment";
 import OrderDetail from "../database/models/OrderDetails";
 import axios from "axios";
 import Product from "../database/models/Product";
+import Cart from "../database/models/Cart";
+import Category from "../database/models/Category";
+import User from "../database/models/userModel";
 
 class ExtendedOrder extends Order {
   declare paymentId: string | null;
@@ -60,6 +63,12 @@ class OrderController {
         quantity: items[i].quantity,
         productId: items[i].productId,
         orderId: orderData.id,
+      });
+      await Cart.destroy({
+        where: {
+          productId: items[i].productId,
+          userId: userId,
+        },
       });
     }
     if (paymentDetails.paymentMethod === PaymentMethod.Khalti) {
@@ -165,6 +174,19 @@ class OrderController {
       include: [
         {
           model: Product,
+          include: [
+            {
+              model: Category,
+              attributes: ["categoryName"],
+            },
+          ],
+        },
+        {
+          model: Order,
+          include: [
+            { model: Payment, attributes: ["paymentMethod", "paymentStatus"] },
+            { model: User, attributes: ["usename", "email"] },
+          ],
         },
       ],
     });
