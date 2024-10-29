@@ -90,25 +90,15 @@ class AuthController {
 
   public static async deleteUser(req: Request, res: Response) {
     const { id } = req.params;
-    const data = await User.findAll({
+    const data = await User.destroy({
       where: {
         id,
       },
     });
-    if (data.length === 0) {
-      res.status(404).json({
-        message: "No category with that id",
-      });
-    } else {
-      await User.destroy({
-        where: {
-          id,
-        },
-      });
-      res.status(200).json({
-        message: "Usr deleted Successfully",
-      });
-    }
+
+    res.status(200).json({
+      message: "Usr deleted Successfully",
+    });
   }
 }
 

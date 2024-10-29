@@ -20,6 +20,6 @@ router
   .delete(
     authMiddleware.isAuthenticated,
     authMiddleware.restrictTo(Role.Admin),
-    AuthController.deleteUser
+    errorHandler(AuthController.deleteUser)
   );
 export default router;
