@@ -77,13 +77,36 @@ class AuthController {
     const users = await User.findAll();
     if (users.length > 0) {
       res.status(200).json({
-        message: "order fetched successfully",
+        message: "User fetched successfully",
         data: users,
       });
     } else {
       res.status(404).json({
-        message: "you haven't ordered anything yet..",
+        message: "you haven't any user ",
         data: [],
+      });
+    }
+  }
+
+  public static async deleteUser(req: Request, res: Response) {
+    const { id } = req.params;
+    const data = await User.findAll({
+      where: {
+        id,
+      },
+    });
+    if (data.length === 0) {
+      res.status(404).json({
+        message: "No category with that id",
+      });
+    } else {
+      await User.destroy({
+        where: {
+          id,
+        },
+      });
+      res.status(200).json({
+        message: "Usr deleted Successfully",
       });
     }
   }
