@@ -185,7 +185,7 @@ class OrderController {
           model: Order,
           include: [
             { model: Payment, attributes: ["paymentMethod", "paymentStatus"] },
-            { model: User, attributes: ["usename", "email"] },
+            { model: User, attributes: ["username", "email"] },
           ],
         },
       ],
