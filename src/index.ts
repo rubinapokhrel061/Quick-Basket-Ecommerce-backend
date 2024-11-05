@@ -73,13 +73,15 @@ io.on("connection", async (socket) => {
       io.to(findUser.socketId).emit("statusUpdated", { status, orderId });
     }
   });
-  socket.on("updatedPaymentStatus", ({ paymentStatus, paymentId, userId }) => {
+  socket.on("updatedPaymentStatus", ({ paymentStatus, orderId, userId }) => {
     const findUser = onlineUsers.find((user: any) => user.userId == userId);
     if (findUser) {
       io.to(findUser.socketId).emit("paymentStatusUpdated", {
         paymentStatus,
-        paymentId,
+        orderId,
       });
+    } else {
+      console.log(`User with ID ${userId} not found in onlineUsers`);
     }
   });
 

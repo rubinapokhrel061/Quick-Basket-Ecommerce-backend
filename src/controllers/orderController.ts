@@ -270,7 +270,8 @@ class OrderController {
       }
     );
     res.status(200).json({
-      message: `Payment Status of orderId ${orderId} updated successfully to ${paymentStatus} `,
+      // message: `Payment Status of orderId ${orderId} updated successfully to ${paymentStatus} `,
+      message: `Payment Status updated successfully `,
     });
   }
 
