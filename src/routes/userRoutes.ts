@@ -21,5 +21,10 @@ router
     authMiddleware.isAuthenticated,
     authMiddleware.restrictTo(Role.Admin),
     errorHandler(AuthController.deleteUser)
+  )
+  .patch(
+    authMiddleware.isAuthenticated,
+    authMiddleware.restrictTo(Role.Admin),
+    errorHandler(AuthController.UpdateUser)
   );
 export default router;
