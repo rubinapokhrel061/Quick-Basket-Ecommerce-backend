@@ -24,6 +24,11 @@ router
     authMiddleware.isAuthenticated,
     authMiddleware.restrictTo(Role.Admin),
     productController.deleteProduct
+  )
+  .patch(
+    authMiddleware.isAuthenticated,
+    authMiddleware.restrictTo(Role.Admin),
+    productController.updateProduct
   );
 
 export default router;

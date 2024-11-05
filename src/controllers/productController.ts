@@ -94,6 +94,45 @@ class ProductController {
     }
   }
 
+  async updateProduct(req: AuthRequest, res: Response): Promise<void> {
+    const { id } = req.params;
+    const {
+      productName,
+      productDescription,
+      productTotalStockQty,
+      productPrice,
+      categoryId,
+    } = req.body;
+
+    const product = await Product.findOne({ where: { id } });
+    if (!product) {
+      res.status(404).json({
+        message: "No product with that id",
+      });
+      return;
+    }
+
+    const updatedData: any = {};
+
+    if (productName) updatedData.productName = productName;
+    if (productDescription) updatedData.productDescription = productDescription;
+    if (productTotalStockQty)
+      updatedData.productTotalStockQty = productTotalStockQty;
+    if (productPrice) updatedData.productPrice = productPrice;
+    if (categoryId) updatedData.categoryId = categoryId;
+
+    let fileName;
+    if (req.file) {
+      fileName = "http://localhost:8080/uploads/" + req.file.filename;
+      updatedData.productImageUrl = fileName;
+    }
+
+    await Product.update(updatedData, { where: { id } });
+
+    res.status(200).json({
+      message: "Product updated successfully",
+    });
+  }
   async deleteProduct(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     const data = await Product.findAll({
