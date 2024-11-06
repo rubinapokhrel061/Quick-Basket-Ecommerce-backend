@@ -28,6 +28,7 @@ router
   .patch(
     authMiddleware.isAuthenticated,
     authMiddleware.restrictTo(Role.Admin),
+    upload.single("image"),
     productController.updateProduct
   );
 

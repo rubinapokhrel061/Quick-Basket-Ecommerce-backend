@@ -122,8 +122,8 @@ class ProductController {
     if (categoryId) updatedData.categoryId = categoryId;
 
     let fileName;
-    if (req.file) {
-      fileName = "http://localhost:8080/uploads/" + req.file.filename;
+    if (req?.file) {
+      fileName = "http://localhost:8080/uploads/" + req?.file?.filename;
       updatedData.productImageUrl = fileName;
     }
 
