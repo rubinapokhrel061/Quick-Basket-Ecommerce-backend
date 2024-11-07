@@ -43,6 +43,17 @@ class Product extends Model {
     type: DataType.STRING,
   })
   declare productImageUrl: string;
+  @Column({
+    type: DataType.INTEGER,
+    defaultValue: 0,
+  })
+  declare rating: number;
+
+  @Column({
+    type: DataType.INTEGER,
+    defaultValue: 0,
+  })
+  declare numReviews: number;
 }
 
 export default Product;

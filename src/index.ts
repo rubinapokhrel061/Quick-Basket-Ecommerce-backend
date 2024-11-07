@@ -58,6 +58,7 @@ const addToOnlineUsers = (socketId: string, userId: string, role: string) => {
 io.on("connection", async (socket) => {
   console.log("A client connected");
   const { token } = socket.handshake.auth;
+  console.log(token);
   if (token) {
     //@ts-ignore
     const decoded = await promisify(jwt.verify)(token, process.env.SECRET_KEY);

@@ -32,4 +32,10 @@ router
     productController.updateProduct
   );
 
+router
+  .route("/review/:id")
+  .post(
+    authMiddleware.isAuthenticated,
+    errorHandler(productController.createProductReview)
+  );
 export default router;
