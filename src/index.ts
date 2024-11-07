@@ -25,8 +25,8 @@ app.use(
     origin: "*",
   })
 );
-cron.schedule("* * * * * *", () => {
-  console.log("Task running every second");
+cron.schedule("*/10 * * * *", () => {
+  console.log("Task running every 10 minutes");
 });
 
 app.use(express.json());
