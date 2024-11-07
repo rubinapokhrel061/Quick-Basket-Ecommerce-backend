@@ -1,6 +1,6 @@
 import express, { Application, Request, Response } from "express";
 const app: Application = express();
-const PORT: number = 8080;
+
 // require("./model/index");
 import * as dotenv from "dotenv";
 dotenv.config();
@@ -39,15 +39,19 @@ app.use("/admin/product", productRoute);
 app.use("/admin/category", categoryRoute);
 app.use("/customer/cart", cartRoute);
 app.use("/order", orderRoute);
-const server = app.listen(PORT, () => {
+
+const server = app.listen(process.env.PORT, () => {
   categoryController.seedCategory();
-  console.log("server has started", PORT);
+  console.log(`Server running on port ${process.env.PORT}`);
   app;
 });
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://localhost:5174"],
+    origin: [
+      "https://quick-basket-ecommercesite.vercel.app/",
+      "https://quickbasketadmin.vercel.app/",
+    ],
   },
 });
 io.on("connection", () => {
