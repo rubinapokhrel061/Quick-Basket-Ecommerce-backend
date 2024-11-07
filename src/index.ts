@@ -32,7 +32,9 @@ cron.schedule("* * * * * *", () => {
 app.use(express.json());
 app.use(express.static("src"));
 adminseeder();
-
+app.get("/", (req, res) => {
+  res.send("sucess");
+});
 //localhost:8080/register
 app.use("", userRoute);
 app.use("/admin/product", productRoute);
