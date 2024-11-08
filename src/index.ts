@@ -30,7 +30,7 @@ cron.schedule("*/10 * * * *", () => {
 });
 
 app.use(express.json());
-
+app.use(express.static("src"));
 adminseeder();
 app.get("/", (req, res) => {
   res.send("sucess");
@@ -49,13 +49,17 @@ const server = app.listen(process.env.PORT, () => {
 });
 
 const io = new Server(server, {
+  // cors: {
+  //   origin: [
+  //     "https://quick-basket-ecommercesite.vercel.app/",
+  //     "https://quickbasketadmin.vercel.app/",
+  //     " http://localhost:5173/",
+  //     "http://localhost:5174/",
+  //   ],
+  // },
+
   cors: {
-    origin: [
-      "https://quick-basket-ecommercesite.vercel.app/",
-      "https://quickbasketadmin.vercel.app/",
-      " http://localhost:5173/",
-      "http://localhost:5174/",
-    ],
+    origin: "*",
   },
 });
 io.on("connection", () => {
