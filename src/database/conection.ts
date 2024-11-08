@@ -1,13 +1,16 @@
 import { Sequelize } from "sequelize-typescript";
 import * as dotenv from "dotenv";
 import User from "./models/userModel";
-import Product from "./models/Product";
+
 import Category from "./models/Category";
 import Cart from "./models/Cart";
 import Order from "./models/Order";
-import OrderDetail from "./models/OrderDetails";
+
 import Payment from "./models/Payment";
+import Product from "./models/Product";
+import OrderDetail from "./models/OrderDetails";
 import Review from "./models/Review";
+
 dotenv.config();
 
 const sequelize = new Sequelize({
@@ -18,6 +21,7 @@ const sequelize = new Sequelize({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
   models: [__dirname + "/models"],
+  logging: console.log,
 });
 console.log(process.env.DB_NAME);
 
@@ -31,7 +35,7 @@ sequelize
     console.log(err);
   });
 sequelize.sync({ force: false }).then(() => {
-  console.log("synced !!");
+  console.log("Tables synced!");
 });
 
 //Relationship

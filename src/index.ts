@@ -35,7 +35,7 @@ adminseeder();
 app.get("/", (req, res) => {
   res.send("sucess");
 });
-//localhost:8080/register
+// localhost:8080/register
 app.use("", userRoute);
 app.use("/admin/product", productRoute);
 app.use("/admin/category", categoryRoute);
@@ -53,6 +53,8 @@ const io = new Server(server, {
     origin: [
       "https://quick-basket-ecommercesite.vercel.app/",
       "https://quickbasketadmin.vercel.app/",
+      " http://localhost:5173/",
+      "http://localhost:5174/",
     ],
   },
 });

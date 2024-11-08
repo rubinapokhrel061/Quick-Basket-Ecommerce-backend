@@ -1,5 +1,5 @@
-import Category from "../database/models/Category";
 import { Request, Response } from "express";
+import Category from "../database/models/Category";
 
 class CategoryController {
   categoryData = [

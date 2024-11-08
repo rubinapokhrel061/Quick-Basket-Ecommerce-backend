@@ -1,8 +1,9 @@
 import express, { Router } from "express";
 import authMiddleware, { Role } from "../middleware/authMiddleware";
-import productController from "../controllers/productController";
+
 import { multer, storage } from "../middleware/multerMiddleware";
 import errorHandler from "../services/catchAsyncError";
+import productController from "../controllers/productController";
 
 const upload = multer({ storage: storage });
 const router: Router = express.Router();

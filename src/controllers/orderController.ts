@@ -12,9 +12,9 @@ import {
 import Order from "../database/models/Order";
 import Payment from "../database/models/Payment";
 import OrderDetail from "../database/models/OrderDetails";
+import Cart from "../database/models/Cart";
 import axios from "axios";
 import Product from "../database/models/Product";
-import Cart from "../database/models/Cart";
 import Category from "../database/models/Category";
 import User from "../database/models/userModel";
 

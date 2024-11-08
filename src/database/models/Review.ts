@@ -14,12 +14,6 @@ class Review extends Model {
   declare id: string;
 
   @Column({
-    type: DataType.UUID,
-    allowNull: false,
-  })
-  declare productId: string;
-
-  @Column({
     type: DataType.STRING,
     allowNull: false,
   })
