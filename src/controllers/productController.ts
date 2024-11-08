@@ -17,10 +17,11 @@ class ProductController {
     } = req.body;
     let fileName;
     if (req.file) {
-      fileName = "http://localhost:8080/uploads/" + req.file?.filename;
+      fileName =
+        "https://ecommerce-backend-9epn.onrender.com/" + req.file?.filename;
     } else {
       fileName =
-        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhZHBob25lfGVufDB8fDB8fHww";
+        "https://commons.wikimedia.org/wiki/File:Image_not_available.png#/media/File:Image_not_available.png";
     }
     if (
       !productName ||
