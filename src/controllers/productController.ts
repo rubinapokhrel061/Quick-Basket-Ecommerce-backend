@@ -135,7 +135,8 @@ class ProductController {
 
     let fileName;
     if (req?.file) {
-      fileName = "http://localhost:8080/uploads/" + req?.file?.filename;
+      fileName =
+        "https://ecommerce-backend-9epn.onrender.com/" + req?.file?.filename;
       updatedData.productImageUrl = fileName;
     }
 
