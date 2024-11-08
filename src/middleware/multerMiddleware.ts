@@ -12,7 +12,8 @@ const storage = multer.diskStorage({
   },
 
   filename: function (req: Request, file: Express.Multer.File, cb: any) {
-    cb(null, Date.now() + "-" + file.originalname);
+    const sanitizedFileName = file.originalname.replace(/\s+/g, "_");
+    cb(null, Date.now() + "-" + sanitizedFileName);
   },
 });
 

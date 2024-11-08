@@ -30,7 +30,8 @@ cron.schedule("*/10 * * * *", () => {
 });
 
 app.use(express.json());
-app.use(express.static("src"));
+app.use(express.static("src/uploads"));
+
 adminseeder();
 app.get("/", (req, res) => {
   res.send("sucess");
