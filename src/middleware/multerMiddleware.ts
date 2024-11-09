@@ -8,11 +8,11 @@ const storage = multer.diskStorage({
       cb(new Error("This filetype is not accepted"));
       return;
     }
-    cb(null, "./src/uploads");
+    cb(null, "./uploads");
   },
 
   filename: function (req: Request, file: Express.Multer.File, cb: any) {
-    const sanitizedFileName = file.originalname.replace(/\s+/g, "_");
+    const sanitizedFileName = file.originalname.replace(/\s+/g, "-");
     cb(null, Date.now() + "-" + sanitizedFileName);
   },
 });
