@@ -20,6 +20,7 @@ import { promisify } from "util";
 import jwt from "jsonwebtoken";
 import cron from "node-cron";
 import User from "./database/models/userModel";
+import path from "path";
 app.use(
   cors({
     origin: "*",
@@ -30,8 +31,8 @@ cron.schedule("*/10 * * * *", () => {
 });
 
 app.use(express.json());
-app.use(express.static("src/uploads"));
-
+// app.use(express.static("uploads"));
+app.use(express.static(path.join(__dirname, "uploads")));
 adminseeder();
 app.get("/", (req, res) => {
   res.send("sucess");
