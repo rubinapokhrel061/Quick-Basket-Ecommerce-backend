@@ -32,17 +32,15 @@ class OrderController {
       paymentDetails,
       items,
     }: OrderData = req.body;
-    if (
-      !phoneNumber ||
-      !shippingAddress ||
-      !totalAmount ||
-      !paymentDetails ||
-      !paymentDetails.paymentMethod ||
-      items.length == 0
-    ) {
+    if (!paymentDetails || !paymentDetails.paymentMethod || items.length == 0) {
       res.status(400).json({
-        message:
-          "Please provide phoneNumber,shippingAddress,totalAmount,paymentDetails,items",
+        message: "Please provide paymentDetails and items",
+      });
+      return;
+    }
+    if (!phoneNumber || !shippingAddress || !totalAmount) {
+      res.status(400).json({
+        message: "Please provide phoneNumber,shippingAddress,totalAmount",
       });
       return;
     }
