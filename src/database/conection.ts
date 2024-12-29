@@ -45,11 +45,11 @@ sequelize.sync({ force: false }).then(() => {
 
 // //Relationship
 
-User.hasMany(Product, { foreignKey: "userId" });
-Product.belongsTo(User, { foreignKey: "userId" });
+// User.hasMany(Product, { foreignKey: "userId" });
+// Product.belongsTo(User, { foreignKey: "userId" });
 
-Category.hasOne(Product, { foreignKey: "categoryId" });
-Product.belongsTo(Category, { foreignKey: "categoryId" });
+// Category.hasOne(Product, { foreignKey: "categoryId" });
+// Product.belongsTo(Category, { foreignKey: "categoryId" });
 
 // // product-cart relation
 // User.hasMany(Cart, { foreignKey: "userId" });
