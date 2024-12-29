@@ -43,44 +43,44 @@ sequelize.sync({ force: false }).then(() => {
   console.log("Tables synced!");
 });
 
-// //Relationship
+//Relationship
 
-// User.hasMany(Product, { foreignKey: "userId" });
-// Product.belongsTo(User, { foreignKey: "userId" });
+User.hasMany(Product, { foreignKey: "userId" });
+Product.belongsTo(User, { foreignKey: "userId" });
 
-// Category.hasOne(Product, { foreignKey: "categoryId" });
-// Product.belongsTo(Category, { foreignKey: "categoryId" });
+Category.hasOne(Product, { foreignKey: "categoryId" });
+Product.belongsTo(Category, { foreignKey: "categoryId" });
 
-// // product-cart relation
-// User.hasMany(Cart, { foreignKey: "userId" });
-// Cart.belongsTo(User, { foreignKey: "userId" });
+// product-cart relation
+User.hasMany(Cart, { foreignKey: "userId" });
+Cart.belongsTo(User, { foreignKey: "userId" });
 
-// // user-cart relation
-// Product.hasMany(Cart, { foreignKey: "productId" });
-// Cart.belongsTo(Product, { foreignKey: "productId" });
+// user-cart relation
+Product.hasMany(Cart, { foreignKey: "productId" });
+Cart.belongsTo(Product, { foreignKey: "productId" });
 
-// // // order-orderdetail relation
-// Order.hasMany(OrderDetail, { foreignKey: "orderId" });
-// OrderDetail.belongsTo(Order, { foreignKey: "orderId" });
+// // order-orderdetail relation
+Order.hasMany(OrderDetail, { foreignKey: "orderId" });
+OrderDetail.belongsTo(Order, { foreignKey: "orderId" });
 
-// // orderdetail-product relation
-// Product.hasMany(OrderDetail, { foreignKey: "productId" });
-// OrderDetail.belongsTo(Product, { foreignKey: "productId" });
+// orderdetail-product relation
+Product.hasMany(OrderDetail, { foreignKey: "productId" });
+OrderDetail.belongsTo(Product, { foreignKey: "productId" });
 
-// //order-payment relation
-// Payment.hasOne(Order, { foreignKey: "paymentId" });
-// Order.belongsTo(Payment, { foreignKey: "paymentId" });
+//order-payment relation
+Payment.hasOne(Order, { foreignKey: "paymentId" });
+Order.belongsTo(Payment, { foreignKey: "paymentId" });
 
-// //order-user relation
-// User.hasMany(Order, { foreignKey: "userId" });
-// Order.belongsTo(User, { foreignKey: "userId" });
+//order-user relation
+User.hasMany(Order, { foreignKey: "userId" });
+Order.belongsTo(User, { foreignKey: "userId" });
 
-// //review -product relaation
+//review -product relaation
 
-// Product.hasMany(Review, { foreignKey: "productId" });
-// Review.belongsTo(Product, { foreignKey: "productId" });
-// //review-use relation
-// User.hasMany(Review, { foreignKey: "userId" });
-// Review.belongsTo(User, { foreignKey: "productId" });
+Product.hasMany(Review, { foreignKey: "productId" });
+Review.belongsTo(Product, { foreignKey: "productId" });
+//review-use relation
+User.hasMany(Review, { foreignKey: "userId" });
+Review.belongsTo(User, { foreignKey: "productId" });
 
 export default sequelize;
